@@ -1,0 +1,22 @@
+.button {
+  padding: 12px;
+  border-radius: 12px;
+  background-color: var(--palette-primary-10);
+  border: 1px solid var(--palette-primary-200);
+  color: var(--palette-primary-300);
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover, &:active {
+    background-color: var(--palette-primary-100);
+    border: 1px solid var(--palette-primary-200);
+    color: var(--palette-primary-300);
+  }
+
+  &:disabled, &:disabled:hover {
+    background-color: var(--palette-primary-10);
+    color: var(--palette-disable-100);
+    border: 1px solid var(--palette-disable-50);
+    cursor: auto;
+  }
+}

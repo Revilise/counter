@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+// /* <-- fonts --> */
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+// /* <---------------> */
+
+import Layout from "./components/Layout/Layout";
+import Card from "./components/Card/Card";
+import Header from "./components/Header/Header";
+import Repeat from "./components/Repeat/Repeat";
+import Footer from "./components/Footer/Footer";
+import Space from "./components/Space/Space";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <Layout
+          orientation="vertical"
+          desktopMaxWidth="w-960"
+          space="sp-16"
+          height="screen-height"
+      >
+          <Header />
+          <Repeat
+              container={Layout}
+              containerProps={{
+                  orientation: "horizontal",
+                  space: "sp-16"
+              }}
+              item={Card}
+              repeat={3}
+          />
+          <Space height="available" />
+          <Footer />
+      </Layout>
+  )
 }
 
 export default App;

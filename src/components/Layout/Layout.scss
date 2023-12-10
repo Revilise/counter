@@ -1,0 +1,64 @@
+@use 'sass:math';
+
+$spacing: [0, 4, 8, 16, 32];
+@mixin childrenSpacing($ori) {
+    @each $space in $spacing {
+        &.sp-#{$space} > *:not(:last-child) {
+            @if $ori == "horizontal" {
+                margin-right: #{$space}px;
+            } @else {
+                margin-bottom: #{$space}px;
+            }
+        }
+    }
+}
+
+$width: ["full", 960, 1280];
+@mixin containerWidth() {
+    @each $w in $width {
+        @if w == "full" {
+            &.#{$w} {
+                width: 100%;
+            }
+        }
+        @else {
+            &.w-#{$w} {
+                max-width: #{$w}px;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.layout {
+    display: flex;
+
+    @include containerWidth();
+
+    &.horizontal {
+        flex-direction: row;
+        @include childrenSpacing("horizontal");
+    }
+    &.vertical {
+        flex-direction: column;
+        @include childrenSpacing("vertical");
+    }
+
+    &.screen-height {
+        min-height: 100vh;
+    }
+
+    &.fit-content {
+        height: fit-content;
+    }
+}
+
+@media (max-width: 961px) {
+   .layout {
+       padding: 8px;
+       &.horizontal {
+           flex-direction: column;
+           @include childrenSpacing("vertical");
+       }
+   }
+}

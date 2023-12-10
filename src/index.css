@@ -1,13 +1,64 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* #1: CSS VARIABLES */
+:root {
+    /* BACKGROUNDS */
+    --primary-background: #FFFFFF;
+    --secondary-background: #E4E4E4;
+
+    /* FONT COLORS */
+    --primary-font-color: #000000;
+    --primary-placeholder-font-color: #E4E4E4;
+
+    /* BORDERS */
+    --primary-border: 1px solid #000000;
+
+    /* PALETTE */
+    --palette-primary-10: #FFFFFF;
+    --palette-primary-50: #F6FAFD;
+    --palette-primary-100: #E9EFF4;
+    --palette-primary-200: #7BBEE3;
+    --palette-primary-300: #0288D1;
+
+    --palette-disable-50: #D5D6D8;
+    --palette-disable-100: #B4B5B6;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+/* #2: BASIC STYLES */
+* {
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    background: var(--primary-background);
+    font-family: Roboto, serif;
+}
+
+p, label, input, button {
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--primary-font-color);
+}
+
+input::placeholder,
+input::-moz-placeholder,
+input::-webkit-input-placeholder,
+input::-ms-input-placeholder {
+    color: var(--primary-placeholder-font-color)
+}
+
+
+/* #3: REMOVE INPUT[type=number] ARROWS */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
