@@ -13,8 +13,16 @@ import Header from "./components/Header/Header";
 import Repeat from "./components/Repeat/Repeat";
 import Footer from "./components/Footer/Footer";
 import Space from "./components/Space/Space";
+import Text from "./components/Text/Text";
 
 function App() {
+  const [count, setCount] = React.useState<number>(0);
+
+  const onSum = React.useCallback(
+      (val: number) => setCount(val + count),
+      [count]
+  )
+
   return (
       <Layout
           orientation="vertical"
@@ -30,8 +38,10 @@ function App() {
                   space: "sp-16"
               }}
               item={Card}
+              itemProps={{onSum}}
               repeat={3}
           />
+          <Text align="al-central">Результат: {count}</Text>
           <Space height="available" />
           <Footer />
       </Layout>

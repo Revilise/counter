@@ -6,11 +6,12 @@ import Button from "../Button/Button";
 import Layout from "../Layout/Layout";
 import Text from "../Text/Text";
 
-interface CardProps {}
+interface CardProps {
+    onSum: Function,
+}
 
 export default function Card(props: CardProps): JSX.Element {
     const [value, setValue] = useState<string>("")
-    const [count, setCount] = useState<number>(0);
 
     function onInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         const {value} = event.target;
@@ -28,7 +29,7 @@ export default function Card(props: CardProps): JSX.Element {
     function onFormSubmit(event: React.SyntheticEvent) {
         event.preventDefault();
 
-        setCount(count + Number(value));
+        props.onSum(Number(value));
         setValue("");
     }
 
@@ -45,7 +46,6 @@ export default function Card(props: CardProps): JSX.Element {
                 <Button disabled={value.trim().length === 0}>
                     Прибавить к результату
                 </Button>
-                <Text>Результат: {count}</Text>
             </Layout>
         </form>
     )
