@@ -17,7 +17,7 @@ export default function Card(props: CardProps): JSX.Element {
         const {value} = event.target;
 
         // не пропускать дробные значения и числа со знаком
-        const operators = ["+", "-", "."];
+        const operators = ["+", "-", ".", ","];
         if(operators.some(o => value.includes(o))) return;
 
         // разрешить вводить только числа
@@ -29,7 +29,8 @@ export default function Card(props: CardProps): JSX.Element {
     function onFormSubmit(event: React.SyntheticEvent) {
         event.preventDefault();
 
-        props.onSum(Number(value));
+        if (props.onSum) props.onSum(Number(value));
+
         setValue("");
     }
 

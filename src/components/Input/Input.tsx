@@ -8,6 +8,7 @@ export default function Input({
 }: InputProps): JSX.Element {
     return (
         <input
+            data-testid="input"
             className="input"
             value={value}
             onChange={onChange}

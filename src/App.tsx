@@ -41,7 +41,12 @@ function App() {
               itemProps={{onSum}}
               repeat={3}
           />
-          <Text align="al-central">Результат: {count}</Text>
+          <Text testid="result-string" align="al-central">
+              Результат:
+              <Text testid="result">
+                  {count}
+              </Text>
+          </Text>
           <Space height="available" />
           <Footer />
       </Layout>
